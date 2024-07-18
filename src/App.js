@@ -1,11 +1,13 @@
 import Header from './components/Header';
+import DateCounter from './components/DateCounter';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Header />
+      <DateCounter />
     </div>
   );
 }
 
-export default App;
+
