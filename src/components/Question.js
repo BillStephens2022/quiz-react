@@ -1,11 +1,10 @@
 import Options from "./Options";
 
-export default function Question({ question }) {
+export default function Question({ question, answer, dispatch }) {
   return (
     <div>
       <h4>{question.question}</h4>
-      <Options question={question} />
-      <button className="btn btn-ui">Next</button>
+      <Options question={question} answer={answer} dispatch={dispatch} />
     </div>
   );
 }
