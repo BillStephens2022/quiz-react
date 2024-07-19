@@ -38,6 +38,8 @@ function reducer(state, action) {
       return { ...state, index: state.index + 1, answer: null };
     case "finish":
       return { ...state, status: "finished", highScore: Math.max(state.highScore, state.points) };
+    case "restart":
+      return { ...initialState, questions: state.questions, highScore: state.highScore, status: "ready" };
     default:
       throw new Error("Unknown Action Type");
   }
@@ -82,7 +84,7 @@ export default function App() {
           </>
         )}
         {status === "finished" && (
-          <FinishScreen points={points} maxPossiblePoints={maxPossiblePoints} highScore={highScore} />
+          <FinishScreen points={points} maxPossiblePoints={maxPossiblePoints} highScore={highScore} dispatch={dispatch} />
         )}
       </Main>
     </div>
